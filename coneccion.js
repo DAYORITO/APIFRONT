@@ -1,1 +1,1 @@
-const url = 'localhost:9090/api/schema/In/';
+export const URL = 'localhost:9090/api/schema/';
