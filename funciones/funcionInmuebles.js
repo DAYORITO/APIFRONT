@@ -1,5 +1,6 @@
-import { URL } from "../coneccion.js";
+import { URL } from "../coneccion";
 
+console.log("aqui1");
 const contenidoTable = document.getElementById('contenidoTable')
 
 if(contenidoTable){
