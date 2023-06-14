@@ -1,1 +1,1 @@
-export const URL = 'localhost:9090/api/schema/';
+export const URL = 'localhost:9090/api/schema/Persona';
