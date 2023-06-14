@@ -12,6 +12,7 @@ const crearPersona = async () =>{
         genero: genero,
         fecha_nacimiento: fecha_nacimiento
     }
+    console.log(persona)
     const calcularEdad = (fecha_nacimiento) => {
         const fechaNac = new Date(fecha_nacimiento);
         const fechaActual = new Date();
@@ -39,10 +40,11 @@ const crearPersona = async () =>{
             headers: {"Content-type": "application/json; charset=UTF-8"}     
         })
         .then(response => response.json()) //La respuesta del método POST de la API
-        .then(json => {
+        .then(data => {
+            console.log(data);
            alert("Persona creada exitosamente")
         })
-        window.location.href= 'file:///C:/Users/ASUS-PC/Desktop/Apis/consumir_api/APIFRONT/tablaUsuarios.html';
+        // window.location.href= 'file:///C:/Users/Sena/Desktop/Apis/consumirApis/APIFRONT/tablaUsuarios.html';
     }
     else{
         alert('Edad no apta para la gestion')
