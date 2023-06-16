@@ -12,12 +12,10 @@ const listarUsuarios = async() => {
             let listarUsuarios = data.persona
             listarUsuarios.map((persona) => {
                 mensaje += `<tr><td>${persona.documento}</td>`+
-                `<td>${persona.fecha_nacimiento}</td>`+
-                `<td style="display: hidden">${persona.id}</td>`+
+                `<td>${persona.nombre}</td>`+
                 `<td>${persona.genero === 'F' ? 'F' : 'M' }</td>`+
                 `<td>${persona.fecha_nacimiento}</td>`+
-                `<td>${persona.id_}</td>`+
-                `<td><a class="waves-effect waves-light btn modal-trigger" href="#modal1" onclick='editarPersona(${JSON.stringify(persona)})'>Editar</a>
+                `<td><a class="waves-effect waves-light btn modal-trigger" id="botonEditar" href="#" onclick='editarPersona(${JSON.stringify(persona)})'>Editar</a>
                  <a class="waves-effect waves-light btn modal-trigger red" href="#" onclick='eliminar("${persona._id}")'>Eliminar</a>
                 </td></tr>`
                 body.innerHTML = mensaje

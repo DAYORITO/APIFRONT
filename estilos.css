@@ -1,0 +1,46 @@
+#modal-container{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 0;
+    height: 0;
+    background: rgba(0,0,0,.5);
+    display: none;
+    z-index: 999;
+}
+
+.modal {
+    width: 100%;
+    max-width: 500px;
+    min-height: 300px;
+    display: flex;
+    background: #fff;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+}
+
+#modal-container.opened{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#close-modal{
+    position:absolute;
+    top: 1rem;
+    right: 1rem;
+    /* estilos qu yo le quiera poner */
+}
+
+.modal-header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 1rem 1rem .5rem;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+}
+

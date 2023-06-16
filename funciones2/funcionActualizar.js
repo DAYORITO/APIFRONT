@@ -1,16 +1,16 @@
-const URL = 'localhost:9090/api/schema/Persona';
+const URL = 'http://localhost:9090/api/schema/Persona';
  const editarPersona = (persona) =>{
     document.getElementById('_id').value = "";
     document.getElementById('documento').value="";
     document.getElementById('nombre').value="";
     document.getElementById('genero').value="";
-    document.getElementById('fecha_nacimiento')="";
+    document.getElementById('fecha_nacimiento').value="";
 
     document.getElementById('_id').value = persona._id
-    document.getElementById('documento').value = persona._id;
-    document.getElementById('nombre').value;
-    document.getElementById('genero').value;
-    document.getElementById('fecha_nacimiento').value;
+    document.getElementById('documento').value = persona.documento;
+    document.getElementById('nombre').value= persona.nombre;
+    document.getElementById('genero').value= persona.genero;
+    document.getElementById('fecha_nacimiento').value = persona.fecha_nacimiento;
 }
 
 const actualizarPersona = async() =>{
@@ -19,8 +19,10 @@ const actualizarPersona = async() =>{
     let nombre = document.getElementById('nombre').value
     let genero = document.getElementById('genero').value
     let fecha_nacimiento = document.getElementById('fecha_nacimiento').value
+    console.log('holi')
 
     let persona = {
+        _id: document.getElementById('_id').value,
         documento: documento,
         nombre: nombre,
         genero: genero,
@@ -47,7 +49,7 @@ const actualizarPersona = async() =>{
 
     if( calcularEdad(fecha_nacimiento) >= 18){
         fetch(URL, {
-            method: 'POST',
+            method: 'PUT',
             mode: 'cors',
             body:JSON.stringify(persona),
             headers: {"Content-type": "application/json; charset=UTF-8"}     
@@ -56,9 +58,13 @@ const actualizarPersona = async() =>{
         .then(json => {
            alert( "Cambios guardados")
         })
-        window.location.href= 'file:///C:/Users/ASUS-PC/Desktop/Apis/consumir_api/APIFRONT/tablaUsuarios.html';
     }
     else{
         alert('Edad no apta para la gestion')
     }
+}
+if(document.querySelector('#actualizarPersona'))
+{
+    document.querySelector('#actualizarPersona')
+.addEventListener('click', actualizarPersona)
 }
